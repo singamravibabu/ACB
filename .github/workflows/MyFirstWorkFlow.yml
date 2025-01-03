@@ -12,4 +12,15 @@ jobs:
     steps:
       - name: Greet the user
         run: echo "Hello world from ${{ github.actor }}."
+      - name: Multiline
+        run: |
+          date > generated.txt
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "generated"
+          git push
+            echo "Hello world from ${{ github.actor }}."
+            echo "Current branch is '${{ github.ref }}."
+            
         shell: bash
